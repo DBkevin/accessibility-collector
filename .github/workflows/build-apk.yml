@@ -21,15 +21,22 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         
-    # 跳过 Gradle 缓存（GitHub 缓存服务不稳定）
-    # - name: Setup Gradle
-    #   uses: gradle/gradle-build-action@v3
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
       
+    - name: Accept Android Licenses
+      run: |
+        yes | sdkmanager --licenses || true
+        
+    - name: Install required SDK components
+      run: |
+        sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+        
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
       
     - name: Build with Gradle
-      run: ./gradlew assembleDebug
+      run: ./gradlew assembleDebug --no-daemon
       
     - name: Upload APK
       uses: actions/upload-artifact@v4
