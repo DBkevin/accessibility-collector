@@ -28,6 +28,12 @@
         android:theme="@style/Theme.MeituanCollector"
         tools:targetApi="31">
         
+        <!-- 临时移除不存在的前台服务 -->
+        <!-- <service
+            android:name=".service.CollectorForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" /> -->
+        
         <!-- 主界面 -->
         <activity
             android:name=".MainActivity"
