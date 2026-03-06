@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">美团医美采集器</string>
+    <string name="accessibility_service_name">美团医美采集服务</string>
+    <string name="accessibility_service_description">用于自动采集美团平台上的医美机构项目数据，包括医院名称、项目名称、价格等信息。请勿用于非法用途。</string>
+</resources>
